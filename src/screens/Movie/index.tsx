@@ -1,12 +1,13 @@
 import React from 'react';
 import { View,Text } from 'react-native';
+import Header from '../../components/Header'
 
 
 
 export default function Movies() {
   return(
     <View>
-    <Text> Movies </Text>
+     <Header title="Prime" />
 
     </View>
 
