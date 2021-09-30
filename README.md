@@ -13,7 +13,7 @@
 
 
 ## 💻 Projeto
-Aplicativo para lhe ajudar a conectar-se e organiza o momento de diversão e jogar com os amigos. Crie grupos para jogar seus games favoritos com seus amigos com esse App que possui autenticação com Discord.
+Aplicativo desenvolvido para aprendizado pelo canal "Sujeito Programador" .
 
 
 ## :hammer_and_wrench: Features 
@@ -32,21 +32,12 @@ Aplicativo para lhe ajudar a conectar-se e organiza o momento de diversão e jog
 ## ✨ Tecnologias
 
 -   [ ] React Native
--   [ ] Typescript
 -   [ ] Expo
--   [ ] Context API
--   [ ] Async Storage
 -   [ ] Vector Icons
--   [ ] React Native Svg e Svg Transform
 -   [ ] Axios
--   [ ] Gradient colors
--   [ ] OAuth2 Discord 
--   [ ] Expo Google Fonts
 -   [ ] React Navigation Stack
 -   [ ] React Native Gesture Handler
--   [ ] Expo Authentication
--   [ ] React Native Share
--   [ ] Deep Link
+-   [ ] Styled-Components
 
 
 ## 🔖 Layout
@@ -62,7 +53,6 @@ Em seguida, inicie o projeto.
 ```cl
 expo start
 ```
-
 
 
 ## 📄 Licença
