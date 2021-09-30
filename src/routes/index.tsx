@@ -2,6 +2,7 @@
   import {MaterialCommunityIcons} from '@expo/vector-icons'
   import {createDrawerNavigator} from '@react-navigation/drawer'
   import Movies from '../screens/Movie'
+  import Home from '../screens/Home'
   import StackRoutes from './stackRoutes';
 
  const Drawer = createDrawerNavigator();
@@ -36,6 +37,7 @@
         }}
         
         />
+        
        <Drawer.Screen
         name="Movies"
        component={Movies}
@@ -48,10 +50,13 @@
           size={size}
           color={color}
         />
+        
      
         ) 
       }}
        />
+
+       
      </Drawer.Navigator>
      
    )
