@@ -25,6 +25,7 @@ export default function Home() {
   const [popularMovies, setPopularMovies] =useState([]);
   const [topMovies, setTopMovies] =useState([]);
   const [bannerMoveis, setBannerMovies]= useState({})
+  const [input, setInput]=useState('') //text vazio
 
 
   useEffect(()=>{
@@ -96,7 +97,9 @@ export default function Home() {
        </Container>
      )
    }
-
+   function handleSearchMovie(){
+     console.log('valor digitado', input)
+   }
 
   return(
     <Container>
@@ -105,8 +108,10 @@ export default function Home() {
      <Input
      placeholder="Buscar..."
      placeholderTextColor="#ddd"
+     value={input}
+     onChangerText={(textDigitado)=>setInput(textDigitado)}
      />
-     <SearchButton>
+     <SearchButton onPress={handleSearchMovie}>
       <Feather name="search" size={30} color="#fff"/>
      </SearchButton>
    </SearchContainer>
