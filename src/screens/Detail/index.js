@@ -11,7 +11,7 @@ import {Container,
   Description
 } from './styles'
 import Stars from 'react-native-stars'
-import {ScrollView} from 'react-native'
+import {ScrollView, Modal} from 'react-native'
 
 import {Feather,Ionicons} from '@expo/vector-icons'
 import api, {key} from '../../services/api'
@@ -23,6 +23,7 @@ export default function Detail() {
  const navigation = useNavigation();
  const route = useRoute();
  const [movie, setMovie]= useState({})
+ const [openLink, setOpenLink]=useState(false)
 
  useEffect(()=>{
    let isActive = true;
@@ -122,6 +123,12 @@ export default function Detail() {
         <Title>Descrição</Title>
         <Description>{movie?.overview}</Description>
         </ScrollView>
+        <Modal
+        animationType="slide"
+        transparent={true}
+        visible={openLink}>
+
+        </Modal>
         
     </Container>
 
