@@ -1,8 +1,9 @@
 import React,{useEffect,useState}from "react"
-import {Container,Name} from './styles'
+import {Container,ListMovie,Name} from './styles'
 import { ScrollView, ActivityIndicator} from 'react-native';
 import api, { key } from '../../services/api';
 import { useNavigation, useRoute } from '@react-navigation/native';
+import SearchItem from "../../components/SearchItem";
 
 
 
@@ -50,10 +51,22 @@ export default function Search(){
        </Container>
      )
    }
+   function navigationDetailsPage(item){
+    //console.log(item.id)
+    navigation.navigate('Detail',{id:item.id})
+   }  
 
   return(
     <Container>
-      <Name>Procurando</Name>
+    <ListMovie
+   
+    showsHorizontalScrollIndocator={false}
+    data={movie}
+    renderItem={({item})=><SearchItem data={item} navigatePage={() => navigationDetailsPage(item)}/>}
+    keyExtractor={(item)=> String(item.id)}
+    
+    
+    />
     </Container>
   
   )

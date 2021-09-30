@@ -22,6 +22,6 @@ export default function SliderItem({data, navigatePage}){
     </Container>
   
   ) 
-  console.log(data)
+
 }
 
