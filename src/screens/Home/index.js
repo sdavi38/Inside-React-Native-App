@@ -98,7 +98,12 @@ export default function Home() {
      )
    }
    function handleSearchMovie(){
-     console.log('valor digitado', input)
+     // Se não digitar
+     if(input === '') return;
+
+     navigation.navigate('Search', {name:input})
+      //limpando os valores
+     setInput('')
    }
 
   return(
@@ -109,7 +114,7 @@ export default function Home() {
      placeholder="Buscar..."
      placeholderTextColor="#ddd"
      value={input}
-     onChangerText={(textDigitado)=>setInput(textDigitado)}
+     onChangeText={(textDigitado)=>setInput(textDigitado)}
      />
      <SearchButton onPress={handleSearchMovie}>
       <Feather name="search" size={30} color="#fff"/>
