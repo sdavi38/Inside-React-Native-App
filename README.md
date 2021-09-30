@@ -31,7 +31,7 @@ Aplicativo desenvolvido para aprendizado pelo canal "Sujeito Programador" .
 -   [ ] React Navigation Stack
 -   [ ] React Native Gesture Handler
 -   [ ] Styled-Components
-
+-   [ ] Async-Storage
 -   [ ] API- https://www.themoviedb.org/
 
 

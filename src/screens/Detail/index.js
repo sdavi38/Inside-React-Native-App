@@ -18,6 +18,7 @@ import api, {key} from '../../services/api'
 import {useNavigation, useRoute} from '@react-navigation/native'    
 import Genres from '../../components/Genres';
 import ModalLink from '../../components/ModalLink';
+import {saveMovie, hasMovie, deleteMovie} from '../../utils/storage '
 
 
 export default function Detail() {
@@ -26,6 +27,7 @@ export default function Detail() {
  const route = useRoute();
  const [movie, setMovie]= useState({})
  const [openLink, setOpenLink]=useState(false)
+ const [favoriteMovie, setFavoriteMovie]= useState(false)
 
  useEffect(()=>{
    let isActive = true;
@@ -43,7 +45,9 @@ export default function Detail() {
       })
 
         if(isActive){
-      setMovie(response.data)
+         setMovie(response.data)
+         const isFavorite = await hasMovie(response.data)   
+         setFavoriteMovie(isFavorite);
      // console.log(response.data)
  
       
@@ -62,6 +66,20 @@ export default function Detail() {
 
 
  },[])
+ 
+  async function favoriteMovie(movie){
+
+    if(favoriteMovie){
+      await deleteMovie(movie.id);
+      setFavoriteMovie(false); 
+      alert('filme removido da lista');
+    }else{
+      await saveMovie('@prime', movie)
+      setFavoriteMovie(true)
+      alert('filme salvo')
+    }
+  
+ }
 
   return(
     <Container>
@@ -75,11 +93,19 @@ export default function Detail() {
           color="#fff"/>
         </HeaderButton>
 
-        <HeaderButton>
-          <Ionicons
-          name="bookmark"
-          size={28}
-          color="#fff"/>
+        <HeaderButton onPress={()=> favoriteMovie(movie)}>
+           {favoriteMovie ?(
+             <Ionicons
+             name="bookmark"
+             size={28}
+             color="#fff"/>
+           ):(
+            <Ionicons
+            name="bookmark-outline"
+            size={28}
+            color="#fff"/>
+           )}
+         
         </HeaderButton>
   
       
@@ -127,7 +153,7 @@ export default function Detail() {
         </ScrollView>
         
         <Modal
-        animationType="slide"
+         animationType="slide"
         visible={openLink}>
           <ModalLink
           link={movie?.homepage}
