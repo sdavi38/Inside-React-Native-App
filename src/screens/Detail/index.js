@@ -18,7 +18,7 @@ import api, {key} from '../../services/api'
 import {useNavigation, useRoute} from '@react-navigation/native'    
 import Genres from '../../components/Genres';
 import ModalLink from '../../components/ModalLink';
-import {saveMovie, hasMovie, deleteMovie} from '../../utils/storage '
+import {saveMovie, hasMovie, deleteMovie} from '../../utils/storage'
 
 
 export default function Detail() {
@@ -67,7 +67,7 @@ export default function Detail() {
 
  },[])
  
-  async function favoriteMovie(movie){
+  async function handleFavoriteMovie(movie){
 
     if(favoriteMovie){
       await deleteMovie(movie.id);
@@ -93,7 +93,7 @@ export default function Detail() {
           color="#fff"/>
         </HeaderButton>
 
-        <HeaderButton onPress={()=> favoriteMovie(movie)}>
+        <HeaderButton onPress={()=> handleFavoriteMovie(movie)}>
            {favoriteMovie ?(
              <Ionicons
              name="bookmark"
