@@ -8,10 +8,11 @@ import {Container,
   ContentArea,
   Rate ,
   ListGenres,
-  Description
+  Description,
+  ButtonShare
 } from './styles'
 import Stars from 'react-native-stars'
-import {ScrollView, Modal} from 'react-native'
+import {ScrollView, Modal,Share} from 'react-native'
 
 import {Feather,Ionicons} from '@expo/vector-icons'
 import api, {key} from '../../services/api'
@@ -22,12 +23,37 @@ import {saveMovie, hasMovie, deleteMovie} from '../../utils/storage'
 
 
 export default function Detail() {
- 
+
+
  const navigation = useNavigation();
  const route = useRoute();
  const [movie, setMovie]= useState({})
  const [openLink, setOpenLink]=useState(false)
  const [favoriteMovie, setFavoriteMovie]= useState(false)
+
+  
+ const onShare = async () => {
+  try {
+    const result = await Share.share({
+      message: ''
+      
+      
+    });
+    if (result.action === Share.sharedAction) {
+      if (result.activityType) {
+        // shared with activity type of result.activityType
+      } else {
+        // shared
+      }
+    } else if (result.action === Share.dismissedAction) {
+      // dismissed
+    }
+  } catch (error) {
+    alert(error.message);
+  }
+};
+
+  
 
  useEffect(()=>{
    let isActive = true;
@@ -68,6 +94,7 @@ export default function Detail() {
  },[])
  
   async function handleFavoriteMovie(movie){
+
 
     if(favoriteMovie){
       await deleteMovie(movie.id);
@@ -122,6 +149,17 @@ export default function Detail() {
         color="#fff"/>
 
        </ButtonLink>
+
+       <ButtonShare 
+        activeOpacity={0.6}
+        onPress={onShare}>
+          <Feather
+          name="share-2"
+          size={28}
+          color="#fff"/>
+
+        </ButtonShare>
+
         <Title numberOfLines={2}>{movie.title}</Title>
 
         <ContentArea>

@@ -1,8 +1,7 @@
 import styled from "styled-components/native";
 
 export const Container = styled.View`
- padding-left: 18px;
- padding-right: 18px;
+ padding:19px
 
 `
 
@@ -16,7 +15,7 @@ font-weight: bold;
 export const RateContainer = styled.View`
 flex-direction: row;
 align-items: center;
-padding:4px 0;
+padding:4px;
 `
 
 export const Rate= styled.Text`

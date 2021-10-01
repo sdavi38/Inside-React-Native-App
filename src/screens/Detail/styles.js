@@ -10,7 +10,7 @@ flex-direction: row;
 justify-content: space-between;
 
 width: 100%;
-top: 35px;
+top: 10px;
 padding:  0 14px;
 position: absolute;
 z-index: 99;
@@ -18,7 +18,6 @@ z-index: 99;
 `
 
 export const HeaderButton = styled.TouchableOpacity `
-background-color:#141a29;
 width: 46px;
 height: 46px;
 background-color: rgba(25,26,48, 0.8);
@@ -37,13 +36,26 @@ padding: 10px;
 
 `
 export const ButtonLink = styled.TouchableOpacity `
-background-color: #e72f49;
-width: 63px;
-height: 63px;
+background-color: #141a29;
+width: 55px;
+height: 55px;
 border-radius: 35px;
 position: absolute;
 top: 300px;
 right: 15px;
+justify-content: center;
+align-items: center;
+z-index: 99;
+`
+
+export const ButtonShare = styled.TouchableOpacity `
+background-color: #141a29;
+width: 55px;
+height: 55px;
+border-radius: 35px;
+position: absolute;
+top: 300px;
+left: 15px;
 justify-content: center;
 align-items: center;
 z-index: 99;
